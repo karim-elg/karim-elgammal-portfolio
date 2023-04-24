@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"ca.mcgill.ecse.flexibook.application"},{"l":"ca.mcgill.ecse.flexibook.controller"},{"l":"ca.mcgill.ecse.flexibook.features"}]

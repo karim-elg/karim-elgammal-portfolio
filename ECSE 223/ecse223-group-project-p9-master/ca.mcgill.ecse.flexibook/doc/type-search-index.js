@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ca.mcgill.ecse.flexibook.features","l":"CucumberStepDefinitions"},{"p":"ca.mcgill.ecse.flexibook.controller","l":"FlexiBookController"},{"p":"ca.mcgill.ecse.flexibook.application","l":"SystemTime"}]

@@ -1,0 +1,403 @@
+namespace ca.mcgill.ecse.flexibook.model;
+
+class Appointment{
+  depend java.sql.Date;
+  depend java.sql.Time;
+  
+  status{
+  	 
+	   	 Issued { 
+	   	 	modifyAppointment(Appointment a, FlexiBook fbs, Date currentDate, Time currentTime, boolean isDateAndTimeModification, boolean isOptionalServiceModification, boolean isNewServiceModification, Service s , Date newDate, Time newTime ) [isAppointmentBeforeOneDay(a, currentDate, currentTime) && isAppointmentTimeValid(a, fbs,isDateAndTimeModification, isOptionalServiceModification, isNewServiceModification, s, newDate, newTime)] / {doModifyAppointment( a,  fbs,  currentDate,  currentTime,  isDateAndTimeModification,  isOptionalServiceModification,  isNewServiceModification,  s, newDate, newTime);}-> Issued;
+	   	 	modifyAppointment(Appointment a, FlexiBook fbs, Date currentDate, Time currentTime, boolean isDateAndTimeModification, boolean isOptionalServiceModification, boolean isNewServiceModification, Service s , Date newDate, Time newTime ) [!isAppointmentBeforeOneDay(a, currentDate, currentTime)] / {rejectModifyAppointment();}-> Issued;
+	   	 	modifyAppointment(Appointment a, FlexiBook fbs, Date currentDate, Time currentTime, boolean isDateAndTimeModification, boolean isOptionalServiceModification, boolean isNewServiceModification, Service s ,  Date newDate, Time newTime) [!isAppointmentTimeValid(a, fbs,isDateAndTimeModification, isOptionalServiceModification, isNewServiceModification, s, newDate, newTime)] / {rejectModifyAppointment();}-> Issued;
+	   	 	
+	   	 	cancelAppointment(Appointment a, FlexiBook fbs, Date currentDate, Time currentTime) [isAppointmentBeforeOneDay(a, currentDate, currentTime)] -> Cancelled;
+	   	 	cancelAppointment(Appointment a, FlexiBook fbs, Date currentDate, Time currentTime) [!isAppointmentBeforeOneDay(a, currentDate, currentTime)]/ {rejectCancel();}-> Issued;
+	   	 	
+	   	 	startAppointment(Appointment a, FlexiBook fbs, Date currentDate, Time currentTime ) [isAppointmentAfterNow(a, fbs, currentDate, currentTime)]-> InProgress;
+	   	 	startAppointment(Appointment a, FlexiBook fbs, Date currentDate, Time currentTime) [!isAppointmentAfterNow(a, fbs, currentDate, currentTime)]-> Issued;
+	   	 	
+	   	 	customerDidNotArrive(Customer c, Appointment a)/ {incrementCustomerNoShow( c);}-> NoShow;
+	   	 	
+	   	 	finishAppointment(Appointment a, FlexiBook fbs)-> Issued;
+	   	 	
+	   	 }
+	   	 
+	   	 InProgress{
+	   	  	modifyAppointment(Appointment a, FlexiBook fbs, Date currentDate, Time currentTime, boolean isDateAndTimeModification, boolean isOptionalServiceModification, boolean isNewServiceModification, Service s , Date newDate, Time newTime) [isOptionalService(isOptionalServiceModification) && isAppointmentTimeValid(a, fbs,isDateAndTimeModification, isOptionalServiceModification, isNewServiceModification, s, newDate, newTime)]/ {doModifyAppointment(a,  fbs,  currentDate,  currentTime,  isDateAndTimeModification,  isOptionalServiceModification,  isNewServiceModification,  s, newDate, newTime);} -> InProgress;
+	   	  	modifyAppointment(Appointment a, FlexiBook fbs, Date currentDate, Time currentTime, boolean isDateAndTimeModification, boolean isOptionalServiceModification, boolean isNewServiceModification, Service s , Date newDate, Time newTime) [isDateTimeModification(isDateAndTimeModification) && isAppointmentTimeValid(a, fbs,isDateAndTimeModification, isOptionalServiceModification, isNewServiceModification, s, newDate, newTime)]/ {rejectModifyAppointment();} -> InProgress;
+	   	  	
+	   	 	startAppointment(Appointment a, FlexiBook fbs, Date currentDate, Time currentTime ) -> InProgress;
+	   	 	
+	   	 	finishAppointment(Appointment a, FlexiBook fbs)-> Completed;
+	   	 	
+	   	 	cancelAppointment(Appointment a, FlexiBook fbs, Date currentDate, Time currentTime) / {rejectCancel();}-> InProgress;
+	   	 	
+	   	 	customerDidNotArrive(Customer c, Appointment a) -> InProgress;
+	   	 }
+	   	 	
+	   	 NoShow{
+	    	entry / {this.delete();}
+	     }
+	    
+	     Cancelled{
+	     	entry / {delete();}
+	     }
+	     
+	     Completed {
+	     	entry / {delete();} 
+	     }
+    
+    
+    }
+    
+   private boolean isAppointmentBeforeOneDay(Appointment a, Date currentDate, Time currentTime) {
+    	
+    	//TODO mihir
+    	
+    	Date appointment = a.getTimeSlot().getStartDate();
+    	Time Tappointment = a.getTimeSlot().getStartTime();
+        
+     
+    	if(appointment.getTime() - currentDate.getTime() >= 86400000) {
+    		return true;
+    	}
+    	else{	
+    		return false;
+    	}
+   	
+    }
+    
+    private boolean isAppointmentAfterNow(Appointment a, FlexiBook fbs, Date currentDate, Time currentTime){
+    	//TODO cecile
+    	boolean isAfterNow = false;
+    	if((currentDate.compareTo(a.getTimeSlot().getStartDate()) >= 0) && (currentTime.compareTo(a.getTimeSlot().getStartTime()) >= 0)){
+    		isAfterNow = true;
+    	}
+    	return isAfterNow;
+    }
+
+    
+     private boolean isAppointmentTimeValid(Appointment a, FlexiBook fbs, boolean isDateAndTimeModification, boolean isOptionalServiceModification, boolean isNewServiceModification, Service s, Date newDate, Time newTime){
+    	TimeSlot finalSlot = new TimeSlot(newDate, newTime, newDate, newTime, fbs);
+	  	 if (isDateAndTimeModification && isNewServiceModification) {
+		   BookableService b = a.getBookableService();
+		   int duration = ((Service)b).getDuration();
+		   Time endTime = new Time(newTime.getTime() + duration*60000);
+		  
+		   finalSlot = new TimeSlot(newDate, newTime, newDate, endTime, fbs);
+	   }
+	   //appointment for combo and modify date and time
+	   else if (isDateAndTimeModification && isOptionalServiceModification) {
+		   boolean areThereOptional = false;
+		   int duration = 0;
+		   
+		   List<ComboItem> chosen = a.getChosenItems();
+		   if (chosen.size() > 0) {
+			   areThereOptional = true;
+		   }
+		   if (areThereOptional) {
+			   for (ComboItem c : chosen) {
+				   duration+= c.getService().getDuration();
+			   }
+		   }
+		   ServiceCombo c = ((ServiceCombo)a.getBookableService());
+		   List<ComboItem> current = c.getServices();
+		  
+		   for (ComboItem ci : current) {
+			   if (ci.getMandatory() ==  true) {
+				   duration+=ci.getService().getDuration();
+			   }
+			  
+		   }
+		   
+		   Time endTime = new Time(newTime.getTime() + duration*60000);
+		   finalSlot = new TimeSlot(newDate, newTime, newDate, endTime, fbs);
+		
+		   
+	   }
+	   //appointment for combo and modify optional service
+	   else if (isOptionalServiceModification) {
+		   ServiceCombo c = ((ServiceCombo)a.getBookableService());
+		   int duration = 0;
+		   List<ComboItem> current = c.getServices();
+		   String chosenName = s.getName();
+		   ComboItem chosenItem = null;
+		   for (ComboItem item : current) {
+			   if (item.getService().getName().equals(chosenName)) {
+				   chosenItem = item;
+			   }
+		   }
+		   for (ComboItem ci : current) {
+			   if (ci.getMandatory() ==  true) {
+				   duration+=ci.getService().getDuration();
+			   }
+			  
+		   }
+		   
+		   duration+=chosenItem.getService().getDuration();
+		   
+		   Time endTime = new Time(a.getTimeSlot().getStartTime().getTime() + duration*60000);
+		   finalSlot = new TimeSlot(a.getTimeSlot().getStartDate(), a.getTimeSlot().getStartTime(), a.getTimeSlot().getEndDate(), endTime, fbs);
+
+	   }
+	   //appointment for service and modify the service
+	   else if (isNewServiceModification) {
+		   int duration =  0;
+		  // a.setBookableService(s);  //CHANGE HEREEEEEE
+		   duration += s.getDuration();
+		   
+		   Time endTime = new Time(a.getTimeSlot().getStartTime().getTime() + duration*60000);
+		   finalSlot = new TimeSlot(a.getTimeSlot().getStartDate(),  a.getTimeSlot().getStartTime(), a.getTimeSlot().getStartDate(), endTime, fbs);
+		
+	   }
+	   
+	   	Date startDate = finalSlot.getStartDate();
+	   	Date endDate = finalSlot.getEndDate();
+   		Time startTime = finalSlot.getStartTime();
+   		Time endTime = finalSlot.getEndTime();
+   		BusinessHour.DayOfWeek weekDay;
+   	
+    	boolean isValid = false;
+    	boolean businessValid = false;
+    	boolean holidayValid = false;
+    	boolean vacationValid = false;
+    	boolean appointmentValid = false;
+    	
+    	Calendar c = Calendar.getInstance();
+		c.setTime(startDate);
+		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+    	
+	        switch(dayOfWeek){
+	            case 2:
+	                weekDay = BusinessHour.DayOfWeek.Monday;
+	                break;
+	            case 3:
+	                weekDay = BusinessHour.DayOfWeek.Tuesday;
+	                break;
+	            case 4:
+	                weekDay = BusinessHour.DayOfWeek.Wednesday;
+	                break;
+	            case 5:
+	                weekDay = BusinessHour.DayOfWeek.Thursday;
+	                break;
+	            case 6:
+	                weekDay = BusinessHour.DayOfWeek.Friday;
+	                break;
+	            case 7:
+	                weekDay = BusinessHour.DayOfWeek.Saturday;
+	                break;
+	            case 1:
+	                weekDay = BusinessHour.DayOfWeek.Sunday;
+	                break;
+	            default:
+	                weekDay = null;
+	        }
+    	for(BusinessHour bh : fbs.getBusiness().getBusinessHours()){
+
+    		if(weekDay == bh.getDayOfWeek()){
+    			if((startTime.compareTo(bh.getStartTime()) >= 0) && (endTime.compareTo(bh.getEndTime()) <= 0)){
+    				businessValid = true;
+    				break;
+    			}
+    		}
+    	}
+    	
+    	int holidayPass = 0;
+    	
+    	for(TimeSlot timeSlot : fbs.getBusiness().getHolidays()){
+    		if(endDate.compareTo(timeSlot.getStartDate()) < 0){
+    			holidayPass++;
+    		}
+    		else if(startDate.compareTo(timeSlot.getEndDate()) > 0){
+    			holidayPass++;
+    		}
+    		else if(endDate.compareTo(timeSlot.getStartDate()) == 0){
+    			if(endTime.compareTo(timeSlot.getStartTime()) < 0){
+    				holidayPass++;
+    			}
+    		}
+    		else if(startDate.compareTo(timeSlot.getEndDate()) == 0){
+    			if(startTime.compareTo(timeSlot.getEndTime()) > 0){
+    				holidayPass++;
+    			}
+    		}
+    	}
+    	
+    	if(holidayPass == fbs.getBusiness().getHolidays().size()) {
+    		holidayValid = true;
+    	}
+    	
+    	int vacationPass = 0;
+    	
+    	for(TimeSlot timeSlot : fbs.getBusiness().getVacation()){
+    	
+    		if(endDate.compareTo(timeSlot.getStartDate()) < 0){
+    			vacationPass++;
+    		}
+    		else if(startDate.compareTo(timeSlot.getEndDate()) > 0){
+    			vacationPass++;
+    		}
+    		else if(endDate.compareTo(timeSlot.getStartDate()) == 0){
+    			if(endTime.compareTo(timeSlot.getStartTime()) <= 0){
+        			vacationPass++;
+    			}
+    		}
+    		else if(startDate.compareTo(timeSlot.getEndDate()) == 0){
+    			if(startTime.compareTo(timeSlot.getEndTime()) >= 0){
+        			vacationPass++;
+    			}
+    		}
+    	}
+    	
+    	if(vacationPass == fbs.getBusiness().getVacation().size()){
+    		vacationValid = true;
+    	}
+    	
+    	int appointmentPass = 0;
+    	
+    	for(Appointment ap : fbs.getAppointments()){
+    		if (ap != a) {
+	    		if(endDate.compareTo(ap.getTimeSlot().getStartDate()) < 0){
+	    			appointmentPass++;
+	    		}
+	    		else if(startDate.compareTo(ap.getTimeSlot().getEndDate()) > 0){
+	    			appointmentPass++;
+	    		}
+	
+	    		else if(startDate.compareTo(ap.getTimeSlot().getStartDate()) == 0){
+	    			if(endTime.compareTo(ap.getTimeSlot().getStartTime()) <= 0 || startTime.compareTo(ap.getTimeSlot().getEndTime()) >= 0){
+	    				appointmentPass++;
+	    			}
+	    				
+	    		}
+    		}
+    		
+    	}
+		
+    	if(appointmentPass == (fbs.getAppointments().size()-1)) {
+    		appointmentValid = true;
+    	}
+    	
+    	if(businessValid == true && holidayValid == true && vacationValid == true && appointmentValid == true){
+    		isValid = true;
+    	}
+    	
+    	return isValid;
+  }
+    
+    private void rejectCancel (){
+    	
+    }
+    
+    private boolean isOptionalService(boolean isOptionalServiceModification) {
+    	
+    	return isOptionalServiceModification;
+    }
+    
+    private boolean isDateTimeModification(boolean isDateAndTimeModification){
+    	
+    	return isDateAndTimeModification;
+    }
+    
+    private boolean isOwnerAvailable() {
+    	//TODO rik
+    	return true;
+    }
+    
+   
+    private void incrementCustomerNoShow(Customer c) {
+    	c.setNoShow( c.getNoShow() +1);
+    }
+    
+    private Appointment doModifyAppointment(Appointment a, FlexiBook fbs, Date currentDate, Time currentTime, boolean isDateAndTimeModification, boolean isOptionalServiceModification, boolean isNewServiceModification, Service s, Date newDate, Time newTime) {
+    	 //appointment for service and modify date and time
+    	 isUpdateSucces = true;
+	   if (isDateAndTimeModification && isNewServiceModification) {
+		   BookableService b = a.getBookableService();
+		   int duration = ((Service)b).getDuration();
+		   Time endTime = new Time(newTime.getTime() + duration*60000);
+		   
+		   TimeSlot t = new TimeSlot(newDate, newTime, newDate, endTime, fbs);
+		   a.setTimeSlot(t);
+		   
+		   
+	   }
+	   //appointment for combo and modify date and time
+	   if (isDateAndTimeModification && isOptionalServiceModification) {
+		   boolean areThereOptional = false;
+		   int duration = 0;
+		   
+		   List<ComboItem> chosen = a.getChosenItems();
+		   if (chosen.size() > 0) {
+			   areThereOptional = true;
+		   }
+		   if (areThereOptional) {
+			   for (ComboItem c : chosen) {
+				   duration+= c.getService().getDuration();
+			   }
+		   }
+		   ServiceCombo c = ((ServiceCombo)a.getBookableService());
+		   List<ComboItem> current = c.getServices();
+		  
+		   for (ComboItem ci : current) {
+			   if (ci.getMandatory() ==  true) {
+				   duration+=ci.getService().getDuration();
+			   }
+			  
+		   }
+		   
+		   Time endTime = new Time(newTime.getTime() + duration*60000);
+		   TimeSlot t = new TimeSlot(newDate, newTime, newDate, endTime, fbs);
+		   a.setTimeSlot(t);
+		   
+		   
+	   }
+	   //appointment for combo and modify optional service
+	   if (isOptionalServiceModification && !isDateAndTimeModification) {
+		   ServiceCombo c = ((ServiceCombo)a.getBookableService());
+		   int duration = 0;
+		   List<ComboItem> current = c.getServices();
+		   String chosenName = s.getName();
+		   ComboItem chosenItem = null;
+		   for (ComboItem item : current) {
+			   if (item.getService().getName().equals(chosenName)) {
+				   chosenItem = item;
+			   }
+		   }
+		   for (ComboItem ci : current) {
+			   if (ci.getMandatory() ==  true) {
+				   duration+=ci.getService().getDuration();
+			   }
+			  
+		   }
+		   
+		   duration+=chosenItem.getService().getDuration();
+		   
+		   Time endTime = new Time(a.getTimeSlot().getStartTime().getTime() + duration*60000);
+		   TimeSlot t = new TimeSlot(a.getTimeSlot().getStartDate(), a.getTimeSlot().getStartTime(), a.getTimeSlot().getEndDate(), endTime, fbs);
+		   a.setTimeSlot(t);
+		   
+		   
+	   }
+	  //appointment for service and modify the service
+	   if (isNewServiceModification) {
+		   int duration =  0;
+		   a.setBookableService(s);
+		   duration += s.getDuration();
+		   
+		   Time endTime = new Time(a.getTimeSlot().getStartTime().getTime() + duration*60000);
+		   TimeSlot t = new TimeSlot(a.getTimeSlot().getStartDate(),  a.getTimeSlot().getStartTime(), a.getTimeSlot().getStartDate(), endTime, fbs);
+		   a.setTimeSlot(t);
+		   
+		   
+	   }
+	   
+    	return a;
+    }
+    
+    private void rejectModifyAppointment() {
+    	isUpdateSucces = false;
+    }
+   
+}
