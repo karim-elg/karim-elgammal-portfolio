@@ -1,0 +1,336 @@
+|karim_elgammal_wrapper
+reset => karim_elgammal_clock_divider:clk_div.reset
+reset => ROM:seqgen.reset
+reset => karim_elgammal_sequence_detector:seqcounter.reset
+enable => karim_elgammal_clock_divider:clk_div.enable
+enable => karim_elgammal_sequence_detector:seqcounter.enable
+clk => karim_elgammal_clock_divider:clk_div.clk
+HEX0[0] <= seven_segment_decoder:hexdis0.segments_out[0]
+HEX0[1] <= seven_segment_decoder:hexdis0.segments_out[1]
+HEX0[2] <= seven_segment_decoder:hexdis0.segments_out[2]
+HEX0[3] <= seven_segment_decoder:hexdis0.segments_out[3]
+HEX0[4] <= seven_segment_decoder:hexdis0.segments_out[4]
+HEX0[5] <= seven_segment_decoder:hexdis0.segments_out[5]
+HEX0[6] <= seven_segment_decoder:hexdis0.segments_out[6]
+HEX5[0] <= seven_segment_decoder:hexdis5.segments_out[0]
+HEX5[1] <= seven_segment_decoder:hexdis5.segments_out[1]
+HEX5[2] <= seven_segment_decoder:hexdis5.segments_out[2]
+HEX5[3] <= seven_segment_decoder:hexdis5.segments_out[3]
+HEX5[4] <= seven_segment_decoder:hexdis5.segments_out[4]
+HEX5[5] <= seven_segment_decoder:hexdis5.segments_out[5]
+HEX5[6] <= seven_segment_decoder:hexdis5.segments_out[6]
+
+
+|karim_elgammal_wrapper|karim_elgammal_clock_divider:clk_div
+enable => temp[0].ENA
+enable => temp[25].ENA
+enable => temp[24].ENA
+enable => temp[23].ENA
+enable => temp[22].ENA
+enable => temp[21].ENA
+enable => temp[20].ENA
+enable => temp[19].ENA
+enable => temp[18].ENA
+enable => temp[17].ENA
+enable => temp[16].ENA
+enable => temp[15].ENA
+enable => temp[14].ENA
+enable => temp[13].ENA
+enable => temp[12].ENA
+enable => temp[11].ENA
+enable => temp[10].ENA
+enable => temp[9].ENA
+enable => temp[8].ENA
+enable => temp[7].ENA
+enable => temp[6].ENA
+enable => temp[5].ENA
+enable => temp[4].ENA
+enable => temp[3].ENA
+enable => temp[2].ENA
+enable => temp[1].ENA
+reset => temp[0].PRESET
+reset => temp[1].PRESET
+reset => temp[2].PRESET
+reset => temp[3].PRESET
+reset => temp[4].PRESET
+reset => temp[5].PRESET
+reset => temp[6].PRESET
+reset => temp[7].ACLR
+reset => temp[8].ACLR
+reset => temp[9].ACLR
+reset => temp[10].ACLR
+reset => temp[11].ACLR
+reset => temp[12].PRESET
+reset => temp[13].PRESET
+reset => temp[14].PRESET
+reset => temp[15].PRESET
+reset => temp[16].ACLR
+reset => temp[17].PRESET
+reset => temp[18].ACLR
+reset => temp[19].PRESET
+reset => temp[20].PRESET
+reset => temp[21].PRESET
+reset => temp[22].PRESET
+reset => temp[23].PRESET
+reset => temp[24].ACLR
+reset => temp[25].PRESET
+clk => temp[0].CLK
+clk => temp[1].CLK
+clk => temp[2].CLK
+clk => temp[3].CLK
+clk => temp[4].CLK
+clk => temp[5].CLK
+clk => temp[6].CLK
+clk => temp[7].CLK
+clk => temp[8].CLK
+clk => temp[9].CLK
+clk => temp[10].CLK
+clk => temp[11].CLK
+clk => temp[12].CLK
+clk => temp[13].CLK
+clk => temp[14].CLK
+clk => temp[15].CLK
+clk => temp[16].CLK
+clk => temp[17].CLK
+clk => temp[18].CLK
+clk => temp[19].CLK
+clk => temp[20].CLK
+clk => temp[21].CLK
+clk => temp[22].CLK
+clk => temp[23].CLK
+clk => temp[24].CLK
+clk => temp[25].CLK
+en_out <= en_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|ROM:seqgen
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => cnt[4].CLK
+clk => cnt[5].CLK
+clk => cnt[6].CLK
+clk => cnt[7].CLK
+reset => cnt[0].ACLR
+reset => cnt[1].ACLR
+reset => cnt[2].ACLR
+reset => cnt[3].ACLR
+reset => cnt[4].ACLR
+reset => cnt[5].ACLR
+reset => cnt[6].ACLR
+reset => cnt[7].ACLR
+data <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter
+seq => karim_elgammal_FSM:seq_detect.seq
+enable => karim_elgammal_FSM:seq_detect.enable
+enable => karim_elgammal_counter:counter1.enable
+enable => karim_elgammal_counter:counter2.enable
+reset => karim_elgammal_FSM:seq_detect.reset
+reset => karim_elgammal_counter:counter1.reset
+reset => karim_elgammal_counter:counter2.reset
+clk => karim_elgammal_FSM:seq_detect.clk
+cnt_1[0] <= karim_elgammal_counter:counter1.count[0]
+cnt_1[1] <= karim_elgammal_counter:counter1.count[1]
+cnt_1[2] <= karim_elgammal_counter:counter1.count[2]
+cnt_2[0] <= karim_elgammal_counter:counter2.count[0]
+cnt_2[1] <= karim_elgammal_counter:counter2.count[1]
+cnt_2[2] <= karim_elgammal_counter:counter2.count[2]
+
+
+|karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect
+seq => karim_elgammal_miniFSM:miniFSM1.P
+seq => karim_elgammal_miniFSM2:miniFSM2.P
+enable => karim_elgammal_miniFSM:miniFSM1.enable
+enable => karim_elgammal_miniFSM2:miniFSM2.enable
+reset => karim_elgammal_miniFSM:miniFSM1.reset
+reset => karim_elgammal_miniFSM2:miniFSM2.reset
+clk => karim_elgammal_miniFSM:miniFSM1.clock
+clk => karim_elgammal_miniFSM2:miniFSM2.clock
+out_1 <= karim_elgammal_miniFSM:miniFSM1.O
+out_2 <= karim_elgammal_miniFSM2:miniFSM2.O
+
+
+|karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1
+clock => currentState~1.DATAIN
+enable => currentState.OUTPUTSELECT
+enable => currentState.OUTPUTSELECT
+enable => currentState.OUTPUTSELECT
+enable => currentState.OUTPUTSELECT
+enable => currentState.OUTPUTSELECT
+P => Selector4.IN1
+P => Selector1.IN2
+P => Selector1.IN3
+P => Selector1.IN4
+P => Selector0.IN3
+P => Selector0.IN4
+P => Selector2.IN2
+P => Selector2.IN3
+P => Selector2.IN4
+P => Selector3.IN0
+reset => currentState~3.DATAIN
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2
+clock => currentState~1.DATAIN
+enable => currentState.OUTPUTSELECT
+enable => currentState.OUTPUTSELECT
+enable => currentState.OUTPUTSELECT
+enable => currentState.OUTPUTSELECT
+enable => currentState.OUTPUTSELECT
+P => Selector0.IN1
+P => Selector3.IN0
+P => Selector4.IN1
+P => Selector2.IN2
+P => Selector2.IN3
+P => Selector2.IN4
+P => Selector1.IN0
+reset => currentState~3.DATAIN
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter|karim_elgammal_counter:counter1
+enable => Etemp[2].IN1
+enable => Etemp[0].IN1
+enable => karim_elgammal_jkff_Re:j0.J
+enable => karim_elgammal_jkff_Re:j0.K
+reset => karim_elgammal_jkff_Re:j0.reset
+reset => karim_elgammal_jkff_Re:j1.reset
+reset => karim_elgammal_jkff_Re:j2.reset
+clk => karim_elgammal_jkff_Re:j0.clk
+clk => karim_elgammal_jkff_Re:j1.clk
+clk => karim_elgammal_jkff_Re:j2.clk
+count[0] <= karim_elgammal_jkff_Re:j0.Q
+count[1] <= karim_elgammal_jkff_Re:j1.Q
+count[2] <= karim_elgammal_jkff_Re:j2.Q
+
+
+|karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter|karim_elgammal_counter:counter1|karim_elgammal_jkff_Re:j0
+reset => sigQ.ACLR
+clk => sigQ.CLK
+J => Mux0.IN3
+K => Mux0.IN4
+Q <= sigQ.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter|karim_elgammal_counter:counter1|karim_elgammal_jkff_Re:j1
+reset => sigQ.ACLR
+clk => sigQ.CLK
+J => Mux0.IN3
+K => Mux0.IN4
+Q <= sigQ.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter|karim_elgammal_counter:counter1|karim_elgammal_jkff_Re:j2
+reset => sigQ.ACLR
+clk => sigQ.CLK
+J => Mux0.IN3
+K => Mux0.IN4
+Q <= sigQ.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter|karim_elgammal_counter:counter2
+enable => Etemp[2].IN1
+enable => Etemp[0].IN1
+enable => karim_elgammal_jkff_Re:j0.J
+enable => karim_elgammal_jkff_Re:j0.K
+reset => karim_elgammal_jkff_Re:j0.reset
+reset => karim_elgammal_jkff_Re:j1.reset
+reset => karim_elgammal_jkff_Re:j2.reset
+clk => karim_elgammal_jkff_Re:j0.clk
+clk => karim_elgammal_jkff_Re:j1.clk
+clk => karim_elgammal_jkff_Re:j2.clk
+count[0] <= karim_elgammal_jkff_Re:j0.Q
+count[1] <= karim_elgammal_jkff_Re:j1.Q
+count[2] <= karim_elgammal_jkff_Re:j2.Q
+
+
+|karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter|karim_elgammal_counter:counter2|karim_elgammal_jkff_Re:j0
+reset => sigQ.ACLR
+clk => sigQ.CLK
+J => Mux0.IN3
+K => Mux0.IN4
+Q <= sigQ.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter|karim_elgammal_counter:counter2|karim_elgammal_jkff_Re:j1
+reset => sigQ.ACLR
+clk => sigQ.CLK
+J => Mux0.IN3
+K => Mux0.IN4
+Q <= sigQ.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter|karim_elgammal_counter:counter2|karim_elgammal_jkff_Re:j2
+reset => sigQ.ACLR
+clk => sigQ.CLK
+J => Mux0.IN3
+K => Mux0.IN4
+Q <= sigQ.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|seven_segment_decoder:hexdis0
+code[0] => Mux0.IN10
+code[0] => Mux1.IN10
+code[0] => Mux2.IN10
+code[0] => Mux3.IN10
+code[0] => Mux4.IN10
+code[0] => Mux5.IN10
+code[0] => Mux6.IN10
+code[1] => Mux0.IN9
+code[1] => Mux1.IN9
+code[1] => Mux2.IN9
+code[1] => Mux3.IN9
+code[1] => Mux4.IN9
+code[1] => Mux5.IN9
+code[1] => Mux6.IN9
+code[2] => Mux0.IN8
+code[2] => Mux1.IN8
+code[2] => Mux2.IN8
+code[2] => Mux3.IN8
+code[2] => Mux4.IN8
+code[2] => Mux5.IN8
+code[2] => Mux6.IN8
+segments_out[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|seven_segment_decoder:hexdis5
+code[0] => Mux0.IN10
+code[0] => Mux1.IN10
+code[0] => Mux2.IN10
+code[0] => Mux3.IN10
+code[0] => Mux4.IN10
+code[0] => Mux5.IN10
+code[0] => Mux6.IN10
+code[1] => Mux0.IN9
+code[1] => Mux1.IN9
+code[1] => Mux2.IN9
+code[1] => Mux3.IN9
+code[1] => Mux4.IN9
+code[1] => Mux5.IN9
+code[1] => Mux6.IN9
+code[2] => Mux0.IN8
+code[2] => Mux1.IN8
+code[2] => Mux2.IN8
+code[2] => Mux3.IN8
+code[2] => Mux4.IN8
+code[2] => Mux5.IN8
+code[2] => Mux6.IN8
+segments_out[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,97 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, the Altera Quartus Prime License Agreement,
+# the Altera MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Altera and sold by Altera or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 15.1.0 Build 185 10/21/2015 SJ Standard Edition
+# Date created = 14:49:43  October 27, 2022
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		VHDL4_karim_elgammal_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEMA5F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY karim_elgammal_wrapper
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 15.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:49:43  OCTOBER 27, 2022"
+set_global_assignment -name LAST_QUARTUS_VERSION 15.1.0
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name VHDL_FILE rca_behavioral.vhd
+set_global_assignment -name SDC_FILE karim_elgammal_sdc.sdc
+set_global_assignment -name VHDL_FILE bcd_adder_structural.vhd
+set_global_assignment -name VHDL_FILE karim_elgammal_wrapper.vhd
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_AE12 -to A[3]
+set_location_assignment PIN_AD10 -to A[2]
+set_location_assignment PIN_AC9 -to A[1]
+set_location_assignment PIN_AE11 -to A[0]
+set_location_assignment PIN_AF10 -to B[3]
+set_location_assignment PIN_AF9 -to B[2]
+set_location_assignment PIN_AC12 -to B[1]
+set_location_assignment PIN_AB12 -to B[0]
+set_location_assignment PIN_AA25 -to decoded_A[6]
+set_location_assignment PIN_AA26 -to decoded_A[5]
+set_location_assignment PIN_AB26 -to decoded_A[4]
+set_location_assignment PIN_AB27 -to decoded_A[3]
+set_location_assignment PIN_Y27 -to decoded_A[2]
+set_location_assignment PIN_AA28 -to decoded_A[1]
+set_location_assignment PIN_V25 -to decoded_A[0]
+set_location_assignment PIN_AB22 -to decoded_B[6]
+set_location_assignment PIN_AB25 -to decoded_B[5]
+set_location_assignment PIN_AB28 -to decoded_B[4]
+set_location_assignment PIN_AC25 -to decoded_B[3]
+set_location_assignment PIN_AD25 -to decoded_B[2]
+set_location_assignment PIN_AC27 -to decoded_B[1]
+set_location_assignment PIN_AD26 -to decoded_B[0]
+set_location_assignment PIN_AD27 -to decoded_A_plus_B[13]
+set_location_assignment PIN_AF30 -to decoded_A_plus_B[12]
+set_location_assignment PIN_AF29 -to decoded_A_plus_B[11]
+set_location_assignment PIN_AG30 -to decoded_A_plus_B[10]
+set_location_assignment PIN_AH30 -to decoded_A_plus_B[9]
+set_location_assignment PIN_AH29 -to decoded_A_plus_B[8]
+set_location_assignment PIN_AJ29 -to decoded_A_plus_B[7]
+set_location_assignment PIN_AH28 -to decoded_A_plus_B[6]
+set_location_assignment PIN_AG28 -to decoded_A_plus_B[5]
+set_location_assignment PIN_AF28 -to decoded_A_plus_B[4]
+set_location_assignment PIN_AG27 -to decoded_A_plus_B[3]
+set_location_assignment PIN_AE28 -to decoded_A_plus_B[2]
+set_location_assignment PIN_AE27 -to decoded_A_plus_B[1]
+set_location_assignment PIN_AE26 -to decoded_A_plus_B[0]
+set_global_assignment -name CDF_FILE output_files/Chain1.cdf
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -1,0 +1,197 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -7.025
+TNS   : -114.625
+
+Type  : Slow 1100mV 85C Model Setup 'karim_elgammal_clock_divider:clk_div|temp[0]'
+Slack : -4.399
+TNS   : -49.026
+
+Type  : Slow 1100mV 85C Model Setup 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2|currentState.A4'
+Slack : -1.151
+TNS   : -2.811
+
+Type  : Slow 1100mV 85C Model Setup 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1|currentState.A4'
+Slack : -1.119
+TNS   : -2.935
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : 0.281
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'karim_elgammal_clock_divider:clk_div|temp[0]'
+Slack : 0.504
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2|currentState.A4'
+Slack : 0.561
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1|currentState.A4'
+Slack : 0.656
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.394
+TNS   : -13.790
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'karim_elgammal_clock_divider:clk_div|temp[0]'
+Slack : -0.394
+TNS   : -12.006
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1|currentState.A4'
+Slack : -0.394
+TNS   : -1.569
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2|currentState.A4'
+Slack : -0.394
+TNS   : -1.535
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -6.782
+TNS   : -107.831
+
+Type  : Slow 1100mV 0C Model Setup 'karim_elgammal_clock_divider:clk_div|temp[0]'
+Slack : -4.432
+TNS   : -49.886
+
+Type  : Slow 1100mV 0C Model Setup 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2|currentState.A4'
+Slack : -1.153
+TNS   : -2.839
+
+Type  : Slow 1100mV 0C Model Setup 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1|currentState.A4'
+Slack : -1.129
+TNS   : -2.864
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : 0.000
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'karim_elgammal_clock_divider:clk_div|temp[0]'
+Slack : 0.543
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2|currentState.A4'
+Slack : 0.547
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1|currentState.A4'
+Slack : 0.613
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.394
+TNS   : -14.501
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'karim_elgammal_clock_divider:clk_div|temp[0]'
+Slack : -0.394
+TNS   : -12.418
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1|currentState.A4'
+Slack : -0.394
+TNS   : -1.547
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2|currentState.A4'
+Slack : -0.394
+TNS   : -1.534
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -4.230
+TNS   : -78.014
+
+Type  : Fast 1100mV 85C Model Setup 'karim_elgammal_clock_divider:clk_div|temp[0]'
+Slack : -2.488
+TNS   : -21.746
+
+Type  : Fast 1100mV 85C Model Setup 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1|currentState.A4'
+Slack : -0.387
+TNS   : -0.986
+
+Type  : Fast 1100mV 85C Model Setup 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2|currentState.A4'
+Slack : -0.383
+TNS   : -0.782
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : 0.202
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'karim_elgammal_clock_divider:clk_div|temp[0]'
+Slack : 0.246
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2|currentState.A4'
+Slack : 0.288
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1|currentState.A4'
+Slack : 0.325
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.092
+TNS   : -2.334
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'karim_elgammal_clock_divider:clk_div|temp[0]'
+Slack : 0.042
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1|currentState.A4'
+Slack : 0.122
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2|currentState.A4'
+Slack : 0.163
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -3.646
+TNS   : -64.951
+
+Type  : Fast 1100mV 0C Model Setup 'karim_elgammal_clock_divider:clk_div|temp[0]'
+Slack : -2.267
+TNS   : -19.837
+
+Type  : Fast 1100mV 0C Model Setup 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2|currentState.A4'
+Slack : -0.328
+TNS   : -0.654
+
+Type  : Fast 1100mV 0C Model Setup 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1|currentState.A4'
+Slack : -0.316
+TNS   : -0.803
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : 0.133
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'karim_elgammal_clock_divider:clk_div|temp[0]'
+Slack : 0.238
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2|currentState.A4'
+Slack : 0.258
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1|currentState.A4'
+Slack : 0.277
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.089
+TNS   : -2.266
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'karim_elgammal_clock_divider:clk_div|temp[0]'
+Slack : 0.058
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1|currentState.A4'
+Slack : 0.130
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2|currentState.A4'
+Slack : 0.162
+TNS   : 0.000
+
+------------------------------------------------------------

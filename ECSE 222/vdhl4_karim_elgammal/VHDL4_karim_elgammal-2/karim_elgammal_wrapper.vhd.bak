@@ -1,0 +1,30 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity karim_elgammal_wrapper is 
+Port(A, B : in std_logic_vector(3 downto 0);
+	decoded_A : out std_logic_vector(6 downto 0);
+	decoded_B : out std_logic_vector(6 downto 0); 
+	decoded_A_plus_B : out std_logic_vector(13 downto 0));
+end karim_elgammal_wrapper; 
+
+
+architecture wrapper of karim_elgammal_wrapper is 
+
+component seven_segment_decoder 
+	port( code : in std_logic_vector (3 downto 0);
+			segments_out : out std_logic_vector(6 downto 0)); 
+end component; 
+
+component bcd_adder_structural
+	port( A : in std_logic_vector(3 downto 0);
+			B : in std_logic_vector(3 downto 0);
+			S : out std_logic_vector(3 downto 0); 
+			C : out std_logic);
+end component;
+
+begin 
+bcd_adder : 
+			
+			

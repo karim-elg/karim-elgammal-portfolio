@@ -1,0 +1,91 @@
+# do karim_elgammal_vdhl1_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim ALTERA vmap 10.4b Lib Mapping Utility 2015.05 May 27 2015
+# vmap -modelsim_quiet work rtl_work 
+# Copying C:/altera/15.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:/altera/15.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {H:/vdhl1_karim_elgammal/or_gate.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 11:47:26 on Sep 12,2022
+# vcom -reportprogress 300 -93 -work work H:/vdhl1_karim_elgammal/or_gate.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity or_gate
+# -- Compiling architecture rtl of or_gate
+# End time: 11:47:26 on Sep 12,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {H:/vdhl1_karim_elgammal/or_gate_testbench.vhd}
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 11:47:26 on Sep 12,2022
+# vcom -reportprogress 300 -93 -work work H:/vdhl1_karim_elgammal/or_gate_testbench.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity testbench
+# -- Compiling architecture tb of testbench
+# End time: 11:47:26 on Sep 12,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs="+acc"  or_gate_testbench
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs=""+acc"" or_gate_testbench 
+# Start time: 11:47:27 on Sep 12,2022
+# ** Error: (vsim-3170) Could not find 'H:/vdhl1_karim_elgammal/simulation/modelsim/rtl_work.or_gate_testbench'.
+# 
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./karim_elgammal_vdhl1_run_msim_rtl_vhdl.do PAUSED at line 12
+vcom -93 -work work H:/vdhl1_karim_elgammal/or_gate_testbench.vhd
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 11:48:07 on Sep 12,2022
+# vcom -reportprogress 300 -93 -work work H:/vdhl1_karim_elgammal/or_gate_testbench.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity testbench
+# -- Compiling architecture tb of testbench
+# End time: 11:48:07 on Sep 12,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -93 -work work H:/vdhl1_karim_elgammal/or_gate.vhd
+# Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+# Start time: 11:48:07 on Sep 12,2022
+# vcom -reportprogress 300 -93 -work work H:/vdhl1_karim_elgammal/or_gate.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity or_gate
+# -- Compiling architecture rtl of or_gate
+# End time: 11:48:07 on Sep 12,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.testbench
+# vsim work.testbench 
+# Start time: 11:47:27 on Sep 12,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.testbench(tb)
+# Loading work.or_gate(rtl)
+add wave -position insertpoint sim:/testbench/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: kelgam1  Hostname: 156TR4060-05  ProcessID: 9672
+# 
+#           Attempting to use alternate WLF file "./wlft2ikixn".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft2ikixn
+# 
+run
+# ** Note: Test done.
+#    Time: 4 ns  Iteration: 0  Instance: /testbench
+# End time: 11:49:11 on Sep 12,2022, Elapsed time: 0:01:44
+# Errors: 1, Warnings: 2

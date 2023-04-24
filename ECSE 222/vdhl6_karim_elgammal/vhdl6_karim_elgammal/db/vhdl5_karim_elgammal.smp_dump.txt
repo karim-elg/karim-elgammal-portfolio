@@ -1,0 +1,16 @@
+
+State Machine - |karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM2:miniFSM2|currentState
+Name currentState.A4 currentState.A3 currentState.A2 currentState.A1 currentState.A0 
+currentState.A0 0 0 0 0 0 
+currentState.A1 0 0 0 1 1 
+currentState.A2 0 0 1 0 1 
+currentState.A3 0 1 0 0 1 
+currentState.A4 1 0 0 0 1 
+
+State Machine - |karim_elgammal_wrapper|karim_elgammal_sequence_detector:seqcounter|karim_elgammal_FSM:seq_detect|karim_elgammal_miniFSM:miniFSM1|currentState
+Name currentState.A4 currentState.A3 currentState.A2 currentState.A1 currentState.A0 
+currentState.A0 0 0 0 0 0 
+currentState.A1 0 0 0 1 1 
+currentState.A2 0 0 1 0 1 
+currentState.A3 0 1 0 0 1 
+currentState.A4 1 0 0 0 1 

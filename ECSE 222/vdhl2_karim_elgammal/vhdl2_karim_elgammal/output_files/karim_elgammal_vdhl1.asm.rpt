@@ -1,0 +1,91 @@
+Assembler report for karim_elgammal_vdhl1
+Fri Sep 23 18:22:34 2022
+Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Assembler Summary
+  3. Assembler Settings
+  4. Assembler Generated Files
+  5. Assembler Device Options: H:/vdhl1_karim_elgammal/output_files/karim_elgammal_vdhl1.sof
+  6. Assembler Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------+
+; Assembler Summary                                             ;
++-----------------------+---------------------------------------+
+; Assembler Status      ; Successful - Fri Sep 23 18:22:34 2022 ;
+; Revision Name         ; karim_elgammal_vdhl1                  ;
+; Top-level Entity Name ; karim_elgammal_comp                   ;
+; Family                ; Cyclone V                             ;
+; Device                ; 5CSEMA5F31C6                          ;
++-----------------------+---------------------------------------+
+
+
++----------------------------------+
+; Assembler Settings               ;
++--------+---------+---------------+
+; Option ; Setting ; Default Value ;
++--------+---------+---------------+
+
+
++---------------------------------------------------------------+
+; Assembler Generated Files                                     ;
++---------------------------------------------------------------+
+; File Name                                                     ;
++---------------------------------------------------------------+
+; H:/vdhl1_karim_elgammal/output_files/karim_elgammal_vdhl1.sof ;
++---------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Assembler Device Options: H:/vdhl1_karim_elgammal/output_files/karim_elgammal_vdhl1.sof ;
++----------------+------------------------------------------------------------------------+
+; Option         ; Setting                                                                ;
++----------------+------------------------------------------------------------------------+
+; Device         ; 5CSEMA5F31C6                                                           ;
+; JTAG usercode  ; 0x00AF5924                                                             ;
+; Checksum       ; 0x00AF5924                                                             ;
++----------------+------------------------------------------------------------------------+
+
+
++--------------------+
+; Assembler Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Assembler
+    Info: Version 15.1.0 Build 185 10/21/2015 SJ Standard Edition
+    Info: Processing started: Fri Sep 23 18:22:10 2022
+Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off karim_elgammal_vdhl1 -c karim_elgammal_vdhl1
+Info (115030): Assembler is generating device programming files
+Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 5014 megabytes
+    Info: Processing ended: Fri Sep 23 18:22:34 2022
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:07
+
+

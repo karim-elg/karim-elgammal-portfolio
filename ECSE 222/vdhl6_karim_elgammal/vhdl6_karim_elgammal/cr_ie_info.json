@@ -1,0 +1,22 @@
+{
+	"system" : {
+		"platform" : "windows64",
+		"os_name" : "Windows 8",
+		"os_version" : "6.2"
+	},
+	"error" : {
+		"executable" : "quartus",
+		"comment" : "none",
+		"error_message" : "Access Violation at 0X00007FF83553DDEF",
+		"source_file" : "unknown",
+		"line" : "0",
+		"stack_trace" : "\t0x7ff83553ddee: CCL_MSG + 0x4ddee (?write_message@MSG_REPORT_FILE@@QEAA_NPEAVMSG_POST@@@Z + 0x3e)\n\t0x7ff8282d5d9e: SYS_QUI + 0x15d9e (?save_msg@QUI_DISPLAY@@QEAAXAEBVFIO_PATH@@@Z + 0x17e)\n\t0x7ff8282f2443: SYS_QUI + 0x32443 (?qui_get_main_frame_wnd_with_clsid@@YAPEAVQUI_FRAME_WND@@U_GUID@@@Z + 0x9c3)\n\t0x7ff8282e8ecd: SYS_QUI + 0x28ecd (?flow_starting_setup@QUI_FRAME_WND@@QEAA_NW4FSTR_FLOW_ENUM@@_N@Z + 0x7d)\n\t0x7ff8282d1fa1: SYS_QUI + 0x11fa1 (?start_flow@QUI_APP@@QEAA_NW4FSTR_FLOW_ENUM@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N22@Z + 0x51)\n\t0x7ff808d6d606: resr_tmwq + 0x1d606 (?run_prereq_command@TMWQ_TREE@@IEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N11@Z + 0x106)\n\t0x7ff808d6f4b3: resr_tmwq + 0x1f4b3 (?start_next_task@TMWQ_TREE@@IEAAX_N@Z + 0x823)\n\t0x7ff808d6ec76: resr_tmwq + 0x1ec76 (?start@TMWQ_TREE@@IEAA_NPEAVTMWQ_ITEM@@@Z + 0x1d6)\n\t0x7ff808d67aef: resr_tmwq + 0x17aef (?on_start@TMWQ_TREE@@IEAAXAEBVQModelIndex@@@Z + 0x2cf)\n\t0x7ff808d67069: resr_tmwq + 0x17069 (?on_double_click_text@TMWQ_TREE@@QEAAXAEBVQModelIndex@@@Z + 0xb9)\n\t 0x506bc420: QtCore4 + 0x11c420 (?activate@QMetaObject@@SAXPEAVQObject@@PEBU1@HPEAPEAX@Z + 0x520)\n\t 0x50cfb2c9: QtGui4 + 0x46b2c9 (?doubleClicked@QAbstractItemView@@IEAAXAEBVQModelIndex@@@Z + 0x29)\n\t 0x50d35a0b: QtGui4 + 0x4a5a0b (?mouseDoubleClickEvent@QTreeView@@MEAAXPEAVQMouseEvent@@@Z + 0x15b)\n\t 0x508f07a8: QtGui4 + 0x607a8 (?event@QWidget@@MEAA_NPEAVQEvent@@@Z + 0xe8)\n\t 0x50c12676: QtGui4 + 0x382676 (?event@QFrame@@MEAA_NPEAVQEvent@@@Z + 0x36)\n\t 0x50d0552c: QtGui4 + 0x47552c (?viewportEvent@QAbstractItemView@@MEAA_NPEAVQEvent@@@Z + 0x4ac)\n\t0x7ff81af4c496: GCL_AFCQ + 0xbc496 (?viewportEvent@AFCQ_TREE_VIEW@@MEAA_NPEAVQEvent@@@Z + 0x2b6)\n\t 0x506af802: QtCore4 + 0x10f802 (?sendThroughObjectEventFilters@QCoreApplicationPrivate@@QEAA_NPEAVQObject@@PEAVQEvent@@@Z + 0x82)\n\t 0x508b2e81: QtGui4 + 0x22e81 (?notify_helper@QApplicationPrivate@@QEAA_NPEAVQObject@@PEAVQEvent@@@Z + 0xe1)\n\t 0x508b1a8e: QtGui4 + 0x21a8e (?notify@QApplication@@UEAA_NPEAVQObject@@PEAVQEvent@@@Z + 0x71e)\n\t 0x506ad92b: QtCore4 + 0x10d92b (?notifyInternal@QCoreApplication@@AEAA_NPEAVQObject@@PEAVQEvent@@@Z + 0x7b)\n\t 0x508b5cfe: QtGui4 + 0x25cfe (?sendMouseEvent@QApplicationPrivate@@SA_NPEAVQWidget@@PEAVQMouseEvent@@00PEAPEAV2@AEAV?$QPointer@VQWidget@@@@_N@Z + 0x1de)\n\t 0x509156f0: QtGui4 + 0x856f0 (?trUtf8@QScrollBar@@SA?AVQString@@PEBD0H@Z + 0x1440)\n\t 0x509190b1: QtGui4 + 0x890b1 (?winMouseButtonUp@QApplication@@SAXXZ + 0x2761)\n\t0x7ff867a674d5: USER32 + 0x174d5 (DispatchMessageW + 0x6a5)\n\t0x7ff867a66ff1: USER32 + 0x16ff1 (DispatchMessageW + 0x1c1)\n\t 0x506d2802: QtCore4 + 0x132802 (?processEvents@QEventDispatcherWin32@@UEAA_NV?$QFlags@W4ProcessEventsFlag@QEventLoop@@@@@Z + 0x3e2)\n\t 0x50910eb4: QtGui4 + 0x80eb4 (?openPopup@QApplicationPrivate@@QEAAXPEAVQWidget@@@Z + 0x204)\n\t 0x506aa88b: QtCore4 + 0x10a88b (?exec@QEventLoop@@QEAAHV?$QFlags@W4ProcessEventsFlag@QEventLoop@@@@@Z + 0x22b)\n\t 0x506ace6f: QtCore4 + 0x10ce6f (?exec@QCoreApplication@@SAHXZ + 0xdf)\n\t0x7ff60d21197b: quartus + 0x197b\n\t0x7ff835502938: CCL_MSG + 0x12938 (?msg_initialize_out_of_memory_handler@@YAXXZ + 0x348)\n\t0x7ff835503f5e: CCL_MSG + 0x13f5e (?msg_set_stack_size@@YAXH@Z + 0x7e)\n\t0x7ff85ed63e6e: ccl_mem + 0x3e6e (?mem_cfg_is_on@@YA_NPEBD_N@Z + 0x13e)\n\t0x7ff835502021: CCL_MSG + 0x12021 (?msg_exe_main@@YAHHPEAPEBDP6AHH0@Z@Z + 0xa1)\n\t0x7ff60d2124e7: quartus + 0x24e7\n\t0x7ff60d211e58: quartus + 0x1e58\n\t0x7ff8680f7973: KERNEL32 + 0x17973 (BaseThreadInitThunk + 0x13)\n\t0x7ff868e1a370: ntdll + 0x5a370 (RtlUserThreadStart + 0x20)\n",
+		"subsystem" : "unknown"
+	},
+	"quartus" : {
+		"quartus_bits" : "64",
+		"version" : "15.1.0",
+		"build" : "185",
+		"edition" : "Standard Edition"
+	}
+}

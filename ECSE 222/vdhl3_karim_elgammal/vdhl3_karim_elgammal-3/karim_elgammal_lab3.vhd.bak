@@ -1,0 +1,41 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.all;
+
+
+
+entity karim_elgammal_barrel_shifter_structural is 
+Port (
+	X : in std_logic_vector (3 downto 0);
+	sel : in std_logic_vector (1 downto 0); 
+	Y : out std_logic_vector (3 downto 0));
+	
+	
+end karim_elgammal_barrel_shifter_structural;
+
+
+architecture structFunc of karim_elgammal_barrel_shifter_structural is 
+
+begin 
+
+ 
+
+
+library IEEE: 
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity myMUX is
+ Port (A : in std_logic;
+		 B : in std_logic;
+		 S : in std_logic;
+		 Y : out std_logic);
+end myMUX;
+
+architecture structlogicFunc of myMUX is
+
+begin 
+
+Y <= ((not S) and A) or (S and B);
+
+end logicFunc; 

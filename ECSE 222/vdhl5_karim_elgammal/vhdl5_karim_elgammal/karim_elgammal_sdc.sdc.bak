@@ -1,0 +1,7 @@
+set_max_delay -from [get_ports A[*]] -to [get_port AgtBplusOne] 12
+set_max_delay -from [get_ports A[*]] -to [get_port AgteBplusOne] 12
+set_max_delay -from [get_ports A[*]] -to [get_port AltBplusOne] 12
+set_max_delay -from [get_ports A[*]] -to [get_port AlteBplusOne] 12
+set_max_delay -from [get_ports A[*]] -to [get_port AeqBplusOne] 12
+set_max_delay -from [get_ports A[*]] -to [get_port overflow] 12
+

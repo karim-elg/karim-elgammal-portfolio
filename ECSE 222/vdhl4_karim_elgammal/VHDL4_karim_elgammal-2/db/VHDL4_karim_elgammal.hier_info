@@ -1,0 +1,421 @@
+|karim_elgammal_wrapper
+A[0] => seven_segment_decoder:decode_a.code[0]
+A[0] => bcd_adder_structural:bcd_adder.A[0]
+A[1] => seven_segment_decoder:decode_a.code[1]
+A[1] => bcd_adder_structural:bcd_adder.A[1]
+A[2] => seven_segment_decoder:decode_a.code[2]
+A[2] => bcd_adder_structural:bcd_adder.A[2]
+A[3] => seven_segment_decoder:decode_a.code[3]
+A[3] => bcd_adder_structural:bcd_adder.A[3]
+B[0] => seven_segment_decoder:decode_b.code[0]
+B[0] => bcd_adder_structural:bcd_adder.B[0]
+B[1] => seven_segment_decoder:decode_b.code[1]
+B[1] => bcd_adder_structural:bcd_adder.B[1]
+B[2] => seven_segment_decoder:decode_b.code[2]
+B[2] => bcd_adder_structural:bcd_adder.B[2]
+B[3] => seven_segment_decoder:decode_b.code[3]
+B[3] => bcd_adder_structural:bcd_adder.B[3]
+decoded_A[0] << seven_segment_decoder:decode_a.segments_out[0]
+decoded_A[1] << seven_segment_decoder:decode_a.segments_out[1]
+decoded_A[2] << seven_segment_decoder:decode_a.segments_out[2]
+decoded_A[3] << seven_segment_decoder:decode_a.segments_out[3]
+decoded_A[4] << seven_segment_decoder:decode_a.segments_out[4]
+decoded_A[5] << seven_segment_decoder:decode_a.segments_out[5]
+decoded_A[6] << seven_segment_decoder:decode_a.segments_out[6]
+decoded_B[0] << seven_segment_decoder:decode_b.segments_out[0]
+decoded_B[1] << seven_segment_decoder:decode_b.segments_out[1]
+decoded_B[2] << seven_segment_decoder:decode_b.segments_out[2]
+decoded_B[3] << seven_segment_decoder:decode_b.segments_out[3]
+decoded_B[4] << seven_segment_decoder:decode_b.segments_out[4]
+decoded_B[5] << seven_segment_decoder:decode_b.segments_out[5]
+decoded_B[6] << seven_segment_decoder:decode_b.segments_out[6]
+decoded_A_plus_B[0] << seven_segment_decoder:decode_sum.segments_out[0]
+decoded_A_plus_B[1] << seven_segment_decoder:decode_sum.segments_out[1]
+decoded_A_plus_B[2] << seven_segment_decoder:decode_sum.segments_out[2]
+decoded_A_plus_B[3] << seven_segment_decoder:decode_sum.segments_out[3]
+decoded_A_plus_B[4] << seven_segment_decoder:decode_sum.segments_out[4]
+decoded_A_plus_B[5] << seven_segment_decoder:decode_sum.segments_out[5]
+decoded_A_plus_B[6] << seven_segment_decoder:decode_sum.segments_out[6]
+decoded_A_plus_B[7] << seven_segment_decoder:decode_overflow.segments_out[0]
+decoded_A_plus_B[8] << seven_segment_decoder:decode_overflow.segments_out[1]
+decoded_A_plus_B[9] << seven_segment_decoder:decode_overflow.segments_out[2]
+decoded_A_plus_B[10] << seven_segment_decoder:decode_overflow.segments_out[3]
+decoded_A_plus_B[11] << seven_segment_decoder:decode_overflow.segments_out[4]
+decoded_A_plus_B[12] << seven_segment_decoder:decode_overflow.segments_out[5]
+decoded_A_plus_B[13] << seven_segment_decoder:decode_overflow.segments_out[6]
+
+
+|karim_elgammal_wrapper|seven_segment_decoder:decode_a
+code[0] => Mux0.IN19
+code[0] => Mux1.IN19
+code[0] => Mux2.IN19
+code[0] => Mux3.IN19
+code[0] => Mux4.IN19
+code[0] => Mux5.IN19
+code[0] => Mux6.IN19
+code[1] => Mux0.IN18
+code[1] => Mux1.IN18
+code[1] => Mux2.IN18
+code[1] => Mux3.IN18
+code[1] => Mux4.IN18
+code[1] => Mux5.IN18
+code[1] => Mux6.IN18
+code[2] => Mux0.IN17
+code[2] => Mux1.IN17
+code[2] => Mux2.IN17
+code[2] => Mux3.IN17
+code[2] => Mux4.IN17
+code[2] => Mux5.IN17
+code[2] => Mux6.IN17
+code[3] => Mux0.IN16
+code[3] => Mux1.IN16
+code[3] => Mux2.IN16
+code[3] => Mux3.IN16
+code[3] => Mux4.IN16
+code[3] => Mux5.IN16
+code[3] => Mux6.IN16
+segments_out[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|seven_segment_decoder:decode_b
+code[0] => Mux0.IN19
+code[0] => Mux1.IN19
+code[0] => Mux2.IN19
+code[0] => Mux3.IN19
+code[0] => Mux4.IN19
+code[0] => Mux5.IN19
+code[0] => Mux6.IN19
+code[1] => Mux0.IN18
+code[1] => Mux1.IN18
+code[1] => Mux2.IN18
+code[1] => Mux3.IN18
+code[1] => Mux4.IN18
+code[1] => Mux5.IN18
+code[1] => Mux6.IN18
+code[2] => Mux0.IN17
+code[2] => Mux1.IN17
+code[2] => Mux2.IN17
+code[2] => Mux3.IN17
+code[2] => Mux4.IN17
+code[2] => Mux5.IN17
+code[2] => Mux6.IN17
+code[3] => Mux0.IN16
+code[3] => Mux1.IN16
+code[3] => Mux2.IN16
+code[3] => Mux3.IN16
+code[3] => Mux4.IN16
+code[3] => Mux5.IN16
+code[3] => Mux6.IN16
+segments_out[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder
+A[0] => rca_structural:rca1.A[0]
+A[1] => rca_structural:rca1.A[1]
+A[2] => rca_structural:rca1.A[2]
+A[3] => rca_structural:rca1.A[3]
+B[0] => rca_structural:rca1.B[0]
+B[1] => rca_structural:rca1.B[1]
+B[2] => rca_structural:rca1.B[2]
+B[3] => rca_structural:rca1.B[3]
+S[0] <= rca_structural:rca2.S[0]
+S[1] <= rca_structural:rca2.S[1]
+S[2] <= rca_structural:rca2.S[2]
+S[3] <= rca_structural:rca2.S[3]
+C <= c1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca1
+A[0] => half_adder:adder_0.b
+A[1] => full_adder:adder_1.b
+A[2] => full_adder:adder_2.b
+A[3] => full_adder:adder_3.b
+B[0] => half_adder:adder_0.a
+B[1] => full_adder:adder_1.a
+B[2] => full_adder:adder_2.a
+B[3] => full_adder:adder_3.a
+S[0] <= half_adder:adder_0.s
+S[1] <= full_adder:adder_1.s
+S[2] <= full_adder:adder_2.s
+S[3] <= full_adder:adder_3.s
+S[4] <= full_adder:adder_3.c_out
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca1|half_adder:adder_0
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca1|full_adder:adder_1
+a => half_adder:ha_0.a
+b => half_adder:ha_0.b
+c_in => half_adder:ha_1.a
+s <= half_adder:ha_1.s
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca1|full_adder:adder_1|half_adder:ha_0
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca1|full_adder:adder_1|half_adder:ha_1
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca1|full_adder:adder_2
+a => half_adder:ha_0.a
+b => half_adder:ha_0.b
+c_in => half_adder:ha_1.a
+s <= half_adder:ha_1.s
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca1|full_adder:adder_2|half_adder:ha_0
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca1|full_adder:adder_2|half_adder:ha_1
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca1|full_adder:adder_3
+a => half_adder:ha_0.a
+b => half_adder:ha_0.b
+c_in => half_adder:ha_1.a
+s <= half_adder:ha_1.s
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca1|full_adder:adder_3|half_adder:ha_0
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca1|full_adder:adder_3|half_adder:ha_1
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca2
+A[0] => half_adder:adder_0.b
+A[1] => full_adder:adder_1.b
+A[2] => full_adder:adder_2.b
+A[3] => full_adder:adder_3.b
+B[0] => half_adder:adder_0.a
+B[1] => full_adder:adder_1.a
+B[2] => full_adder:adder_2.a
+B[3] => full_adder:adder_3.a
+S[0] <= half_adder:adder_0.s
+S[1] <= full_adder:adder_1.s
+S[2] <= full_adder:adder_2.s
+S[3] <= full_adder:adder_3.s
+S[4] <= full_adder:adder_3.c_out
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca2|half_adder:adder_0
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca2|full_adder:adder_1
+a => half_adder:ha_0.a
+b => half_adder:ha_0.b
+c_in => half_adder:ha_1.a
+s <= half_adder:ha_1.s
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca2|full_adder:adder_1|half_adder:ha_0
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca2|full_adder:adder_1|half_adder:ha_1
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca2|full_adder:adder_2
+a => half_adder:ha_0.a
+b => half_adder:ha_0.b
+c_in => half_adder:ha_1.a
+s <= half_adder:ha_1.s
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca2|full_adder:adder_2|half_adder:ha_0
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca2|full_adder:adder_2|half_adder:ha_1
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca2|full_adder:adder_3
+a => half_adder:ha_0.a
+b => half_adder:ha_0.b
+c_in => half_adder:ha_1.a
+s <= half_adder:ha_1.s
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca2|full_adder:adder_3|half_adder:ha_0
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|bcd_adder_structural:bcd_adder|rca_structural:rca2|full_adder:adder_3|half_adder:ha_1
+a => s.IN0
+a => c.IN0
+b => s.IN1
+b => c.IN1
+s <= s.DB_MAX_OUTPUT_PORT_TYPE
+c <= c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|seven_segment_decoder:decode_overflow
+code[0] => Mux0.IN19
+code[0] => Mux1.IN19
+code[0] => Mux2.IN19
+code[0] => Mux3.IN19
+code[0] => Mux4.IN19
+code[0] => Mux5.IN19
+code[0] => Mux6.IN19
+code[1] => Mux0.IN18
+code[1] => Mux1.IN18
+code[1] => Mux2.IN18
+code[1] => Mux3.IN18
+code[1] => Mux4.IN18
+code[1] => Mux5.IN18
+code[1] => Mux6.IN18
+code[2] => Mux0.IN17
+code[2] => Mux1.IN17
+code[2] => Mux2.IN17
+code[2] => Mux3.IN17
+code[2] => Mux4.IN17
+code[2] => Mux5.IN17
+code[2] => Mux6.IN17
+code[3] => Mux0.IN16
+code[3] => Mux1.IN16
+code[3] => Mux2.IN16
+code[3] => Mux3.IN16
+code[3] => Mux4.IN16
+code[3] => Mux5.IN16
+code[3] => Mux6.IN16
+segments_out[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|karim_elgammal_wrapper|seven_segment_decoder:decode_sum
+code[0] => Mux0.IN19
+code[0] => Mux1.IN19
+code[0] => Mux2.IN19
+code[0] => Mux3.IN19
+code[0] => Mux4.IN19
+code[0] => Mux5.IN19
+code[0] => Mux6.IN19
+code[1] => Mux0.IN18
+code[1] => Mux1.IN18
+code[1] => Mux2.IN18
+code[1] => Mux3.IN18
+code[1] => Mux4.IN18
+code[1] => Mux5.IN18
+code[1] => Mux6.IN18
+code[2] => Mux0.IN17
+code[2] => Mux1.IN17
+code[2] => Mux2.IN17
+code[2] => Mux3.IN17
+code[2] => Mux4.IN17
+code[2] => Mux5.IN17
+code[2] => Mux6.IN17
+code[3] => Mux0.IN16
+code[3] => Mux1.IN16
+code[3] => Mux2.IN16
+code[3] => Mux3.IN16
+code[3] => Mux4.IN16
+code[3] => Mux5.IN16
+code[3] => Mux6.IN16
+segments_out[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segments_out[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

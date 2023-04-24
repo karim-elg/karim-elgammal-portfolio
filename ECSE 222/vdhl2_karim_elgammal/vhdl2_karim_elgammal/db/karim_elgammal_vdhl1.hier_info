@@ -1,0 +1,7 @@
+|karim_elgammal_MUX_behavioral
+A => Y.DATAB
+B => Y.DATAA
+S => Y.OUTPUTSELECT
+Y << Y.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,6 @@
+set_max_delay -from [reset] -to [get_ports HEX0[*]] 5
+set_max_delay -from [reset] -to [get_ports HEX5[*]] 5
+set_max_delay -from [enable] -to [get_ports HEX0[*]] 5
+set_max_delay -from [enable] -to [get_ports HEX5[*]] 5
+set_max_delay -from [clk] -to [get_ports HEX0[*]] 5
+set_max_delay -from [clk] -to [get_ports HEX5[*]] 5
